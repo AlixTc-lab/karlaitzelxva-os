@@ -129,7 +129,7 @@ FONDO MÁGICO (CORREGIDO)
             rgba(11, 19, 43, 0.82),
             rgba(28, 37, 65, 0.88)
         ),
-        url("h2.png");
+        url("h.png");
        
 
     
@@ -622,7 +622,7 @@ RESPONSIVE DESIGN (Móvil)
             rgba(11, 19, 43, 0.82),
             rgba(28, 37, 65, 0.88)
         ),
-        url("hero.jpg");
+        url("h2.png");
          background-size: cover;
     background-position: center;
     backdrop-filter: blur(18px);
@@ -878,7 +878,7 @@ RESPONSIVE DESIGN (Para celulares)
             rgba(11, 19, 43, 0.82),
             rgba(28, 37, 65, 0.88)
         ),
-        url("hero.jpg");
+        url("h2.png");
     background-size: cover;
     background-position: center;
     backdrop-filter: blur(18px);
@@ -1061,7 +1061,7 @@ RESPONSIVE DESIGN (Móvil)
             rgba(11, 19, 43, 0.85),
             rgba(28, 37, 65, 0.88)
         ),
-        url("hero.jpg");
+        url("h2.png");
     background-size: cover;
     background-position: center;
     backdrop-filter: blur(20px);
@@ -1274,7 +1274,7 @@ RESPONSIVE DESIGN (Móvil)
             rgba(11, 19, 43, 0.85),
             rgba(28, 37, 65, 0.88)
         ),
-        url("hero.jpg");
+        url("h.png");
     background-size: cover;
     background-position: center;
     backdrop-filter: blur(20px);
@@ -1411,7 +1411,7 @@ SECCIÓN CONFIRMACIÓN
             rgba(11, 19, 43, 0.82),
             rgba(28, 37, 65, 0.88)
         ),
-        url("hero.jpg");
+        url("h2.png");
 
     background-size: cover;
     background-position: center;
@@ -1595,7 +1595,7 @@ BOTÓN FLOTANTE DE MÚSICA
             rgba(11, 19, 43, 0.82),
             rgba(28, 37, 65, 0.88)
         ),
-        url("hero.jpg");
+        url("h.png");
          background-size: cover;
     background-position: center;
     backdrop-filter: blur(20px);
