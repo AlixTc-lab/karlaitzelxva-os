@@ -1,0 +1,1946 @@
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    margin:0;
+    font-family: Georgia, serif;
+    background:#07060d;
+    color:#f5e9d8;
+    scroll-behavior:smooth;
+}
+
+
+/*======================================================
+1. VARIABLES
+======================================================*/
+
+:root {
+    /* Azules del Techo Encantado (Cielo Nocturno) */
+    --azul-profundo: #0B132B;   /* El fondo de la noche estrellada */
+    --azul-noche: #1C2541;      /* Azul intermedio para fondos secundarios */
+    --azul-magico: #3A506B;     /* Un azul más claro, como nubes nocturnas */
+
+    /* El Brillo de las Veladoras Flotantes */
+    --vela-oro: #FFD166;        /* El fuego dorado y cálido de las velas */
+    --vela-brillo: #FFF2CC;     /* Un amarillo muy suave, casi blanco, para destellos */
+    --vela-fuego: #F4A261;      /* El tono anaranjado de la base de la flama */
+
+    /* Tonos Neutros (Piedra del Castillo y Claros) */
+    --blanco-estelar: #F8F9FA;  /* Un blanco limpio para el texto claro */
+    --crema-pergamino: #FAF6EE; /* Un fondo suave que recuerda al pergamino */
+    --gris-castillo: #4A4E69;   /* El tono de las paredes de piedra en la penumbra */
+
+    /* Textos y Contrastes */
+    --titulo-magico: #FFD166;   /* Los títulos resaltarán en dorado */
+    --texto-oscuro: #1C2541;    /* Para leer cómodamente sobre fondos claros */
+
+    /* Efectos Mágicos (Sombras con un ligero aura de vela) */
+    --shadow-magica: 0 15px 35px rgba(255, 209, 102, 0.15); /* Sombra con un sutil destello dorado */
+}
+
+
+
+/* ======================================================
+FONDO MÁGICO (CORREGIDO)
+====================================================== */
+#sky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top, #1b1230, #05040a);
+    z-index: -1; /* 🌟 CORRECCIÓN: Envía el cielo al fondo absoluto */
+    overflow: hidden;
+}
+
+/* ESTRELLAS */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+/* VELAS */
+.candle {
+    position: absolute;
+    width: 6px;
+    height: 30px;
+    background: #e6d3a3;
+    border-radius: 4px;
+}
+
+.flame {
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #ffdd88, #ff6600);
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: flicker 0.2s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { transform: translateX(-50%) scale(1); }
+    100% { transform: translateX(-50%) scale(1.3); }
+}
+
+/*======================================================
+3. HERO
+======================================================*/
+
+.hero{
+
+ position:relative;
+    z-index:2;
+   
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+ background: 
+        linear-gradient(
+            rgba(11, 19, 43, 0.82),
+            rgba(28, 37, 65, 0.88)
+        ),
+        url("h1.png");
+       
+
+    
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center center;
+
+}
+
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:5;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+.detalle{
+
+    display:inline-block;
+
+    padding:10px 24px;
+
+    border-radius:50px;
+
+    background: rgba(11, 19, 43, 0.45),   /* Azul profundo con transparencia */
+        rgba(58, 80, 107, 0.30) ;
+
+    backdrop-filter:blur(12px);
+
+    color:var(--vela-oro);
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:25px;
+
+}
+
+.hero h1{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:130px;
+
+    font-weight:100;
+
+   color: var(--vela-oro);
+text-shadow: 
+    0 2px 10px rgba(11, 19, 43, 0.7),   /* Sombra oscura: da contraste y legibilidad */
+    0 0 20px rgba(244, 162, 97, 0.6);   /* Resplandor naranja: simula el calor de la vela */
+
+    animation:fadeDown 2s;
+
+}
+
+.linea{
+
+    width:140px;
+
+    height:2px;
+
+    background:linear-gradient(
+        to right,
+        transparent,
+        var(--vela-fuego),
+        var(--vela-oro),
+        transparent
+    );
+
+    margin:25px auto;
+
+}
+
+.hero p{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:32px;
+
+    color:var(--titulo-magico);
+
+    letter-spacing:2px;
+
+    animation:fadeUp 2s;
+
+}
+
+
+/*======================================================
+4. CUENTA REGRESIVA
+======================================================*/
+.contador {
+    padding: 120px 20px;
+    text-align: center;
+  
+
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.subtitulo {
+    color: var(--vela-fuego);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block; 
+}
+
+.contador h2 {
+    margin: 15px 0;
+    font-size: 52px;
+    font-family: "Cormorant Garamond", serif;
+    color: var(--vela-oro);
+  
+    text-shadow: 0 2px 10px rgba(11, 19, 43, 0.7), 0 0 20px rgba(244, 162, 97, 0.4);
+}
+
+.texto-contador {
+    max-width: 650px;
+    margin: 0 auto 55px;
+    color: var(--gris-castillo); 
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.tiempo {
+   
+    background: rgba(28, 37, 65, 0.65); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Compatibilidad con Safari */
+    border: 1px solid rgba(58, 80, 107, 0.3); /* Borde sutil con azul mágico */
+    border-radius: 30px;
+    padding: 35px 20px;
+    box-shadow: var(--shadow-magica); /* Tu nueva sombra con aura dorada */
+    transition: .35s ease-in-out;
+}
+
+.tiempo:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 209, 102, 0.5); /* Al pasar el cursor, brilla un poco más */
+}
+
+.tiempo span {
+    display: block;
+    font-size: 70px;
+    font-weight: 700;
+    color: var(--blanco-estelar); /* Cambiado a blanco claro para leer sobre el fondo oscuro */
+    line-height: 1;
+}
+
+.tiempo small {
+    display: block;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    color: var(--vela-oro); /* Las etiquetas brillan como veladoras */
+}
+
+/* ======================================================
+RESPONSIVE DESIGN (Para celulares y tablets)
+====================================================== */
+@media (max-width: 768px) {
+    .countdown {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets/móviles */
+        gap: 15px;
+    }
+    .contador h2 {
+        font-size: 38px; /* Título un poco más chico en celulares */
+    }
+    .tiempo span {
+        font-size: 50px; /* Números más cómodos para pantallas chicas */
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown {
+        grid-template-columns: 1fr; /* 1 sola columna en pantallas muy pequeñas si es necesario */
+    }
+}
+
+/*======================================================
+5. ANIMACIONES
+======================================================*/
+
+@keyframes fadeDown{
+
+    from{
+
+        opacity:0;
+        transform:translateY(-60px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/*======================================================
+6. RESPONSIVE
+======================================================*/
+
+@media(max-width:900px){
+
+.countdown{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+
+    height:100svh;
+
+}
+
+.hero h1{
+
+    font-size:82px;
+
+}
+
+.hero p{
+
+    font-size:24px;
+
+}
+
+.detalle{
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.contador{
+
+    padding:90px 20px;
+
+}
+
+.contador h2{
+
+    font-size:38px;
+
+}
+
+.countdown{
+
+    gap:15px;
+
+}
+
+.tiempo{
+
+    padding:25px 15px;
+
+}
+
+.tiempo span{
+
+    font-size:48px;
+
+}
+
+}
+
+/*======================================================
+6. GALERÍA
+======================================================*/
+
+.galeria {
+    padding: 120px 20px;
+    position: relative;
+    z-index: 1; /* Trae las fotos por encima del cielo estrellado */
+}
+
+.titulo-seccion {
+    max-width: 700px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.titulo-seccion span {
+    color: var(--vela-fuego);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.titulo-seccion h2 {
+    margin-top: 15px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 55px;
+    color: var(--titulo-magico); /* Cambiado al dorado de las velas */
+    text-shadow: 0 2px 10px rgba(11, 19, 43, 0.9);
+}
+
+.titulo-seccion p {
+    margin-top: 20px;
+    color: var(--blanco-estelar); /*  Cambiado para que sea legible sobre el fondo oscuro */
+    opacity: 0.8;
+}
+
+/* GRID DE IMÁGENES */
+.galeria-grid{
+    max-width:900px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.foto{
+    height:280px;
+    overflow:hidden;
+    border-radius:30px;
+    background:var(--azul-noche);
+    box-shadow:var(--shadow-magica);
+    border:1px solid rgba(58,80,107,.3);
+    position:relative;
+}
+
+.foto-principal{
+      grid-column:1 / -1;
+    height:500px;
+    max-width:850px;
+    width:100%;
+    justify-self:center;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .6s ease-in-out;
+}
+
+.foto:hover img {
+    transform: scale(1.12);
+}
+
+/* Fotos destacadas */
+.foto.grande {
+    height: 450px;
+}
+
+
+
+/* EFECTO DE BRILLO MÁGICO (HOVER) */
+.foto::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Cambiado de un reflejo blanco plano a un destello de luz cálido/dorado */
+    background: linear-gradient(
+        135deg,
+        rgba(255, 242, 204, 0.25), 
+        transparent 60%
+    );
+    opacity: 0;
+    transition: .4s ease-in-out;
+    pointer-events: none; /* Asegura que el efecto no interfiera con clics */
+}
+
+.foto:hover::after {
+    opacity: 1;
+}
+
+.foto:hover {
+    border-color: rgba(255, 209, 102, 0.5); /* El borde se ilumina en dorado al pasar el cursor */
+}
+
+/* ======================================================
+RESPONSIVE DESIGN (Móvil)
+====================================================== */
+@media (max-width: 900px) {
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .titulo-seccion h2 {
+        font-size: 40px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr; 
+        gap: 15px;
+    }
+
+    .foto, 
+    .foto.grande {
+        height: 320px; /* Tamaño unificado y cómodo para celulares */
+    }
+   .foto-principal{
+        grid-column:auto;
+        height:380px;
+    }
+ 
+}
+
+@media (min-width:1400px){
+
+    .foto-principal{
+        height:420px;
+    }
+
+}
+
+/*======================================================
+5. LUGARES
+======================================================*/
+
+.lugares {
+    padding: 120px 20px;
+    position: relative;
+    z-index: 1; /* Trae las tarjetas por encima de las estrellas y velas fijas */
+}
+
+.lugares-container {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+}
+
+/* Tarjeta de Lugar estilo Cristal Nocturno */
+.lugar-card {
+    /*  Fondo azul intermedio traslúcido para que no tape el fondo, sino que se mezcle */
+    background: 
+        linear-gradient(
+            rgba(11, 19, 43, 0.82),
+            rgba(28, 37, 65, 0.88)
+        ),
+        url("hero.jpg");
+         background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px); /* Soporte para Safari */
+    border-radius: 35px;
+    overflow: hidden;
+    box-shadow: var(--shadow-magica); /* Sombra con aura dorada */
+    border: 1px solid rgba(58, 80, 107, 0.4); /* Borde sutil azul mágico */
+    transition: .4s ease-in-out;
+}
+
+.lugar-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 209, 102, 0.4); /* Brillo dorado al pasar el cursor */
+}
+
+.imagen-lugar {
+    height: 330px;
+    overflow: hidden;
+}
+
+.imagen-lugar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .6s ease-in-out;
+}
+
+.lugar-card:hover img {
+    transform: scale(1.08);
+}
+
+.info-lugar {
+    text-align: center;
+    padding: 35px 30px 40px;
+}
+
+/* El círculo del Icono: Ahora es un destello cálido */
+.icono {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+   
+    background: linear-gradient(135deg, var(--vela-oro), var(--vela-fuego));
+    color: var(--azul-profundo); /* El emoji/icono interior resalta en oscuro */
+    font-size: 28px;
+    box-shadow: 0 0 15px rgba(244, 162, 97, 0.4);
+}
+
+.info-lugar h3 {
+    margin: 20px 0 15px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 38px;
+    color: var(--titulo-magico); /* Título en dorado */
+    text-shadow: 0 2px 10px rgba(11, 19, 43, 0.9);
+}
+
+.info-lugar p {
+    line-height: 1.8;
+    color: var(--blanco-estelar); /* Texto claro para que sea legible */
+    opacity: 0.85;
+    margin-bottom: 15px;
+}
+
+/* Botón de Acción Estilo Pergamino/Oro */
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--azul-profundo); /* Texto oscuro sobre fondo dorado */
+    font-weight: 600;
+    /* 🌟 Cambiado a degradado dorado brillante */
+    background: linear-gradient(135deg, var(--vela-brillo), var(--vela-oro));
+    transition: .3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(255, 209, 102, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    /* 🌟 Destello mágico dorado al hacer hover */
+    box-shadow: 0 10px 25px rgba(255, 209, 102, 0.4);
+    background: linear-gradient(135deg, var(--vela-oro), var(--vela-fuego));
+    color: var(--blanco-estelar);
+}
+
+/* ======================================================
+RESPONSIVE DESIGN (Móvil)
+====================================================== */
+@media (max-width: 900px) {
+    .lugares-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .imagen-lugar {
+        height: 250px;
+    }
+
+    .info-lugar h3 {
+        font-size: 32px;
+    }
+    
+    .info-lugar {
+        padding: 25px 20px 30px;
+    }
+}
+
+
+
+/* ======================================================
+TIMELINE (LÍNEA DE TIEMPO)
+====================================================== */
+.timeline {
+    position: relative;
+    margin-top: 40px;
+    padding: 10px 0;
+}
+
+/* Línea central dorada */
+.timeline::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--vela-oro), transparent); /* Efecto desvanecido */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.6;
+}
+
+/* Elementos de la línea */
+.t-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 30px;
+    box-sizing: border-box;
+}
+
+/* Izquierda */
+.t-item.left {
+    left: 0;
+    text-align: right;
+}
+
+/* Derecha */
+.t-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+/* Textos dentro de los bloques del Timeline */
+.itinerario-card h3 {
+    font-size: 22px;
+    color: var(--vela-oro); /* Las horas/títulos brillan en dorado */
+    margin: 0 0 8px 0;
+    font-family: "Cormorant Garamond", serif;
+}
+
+.itinerario-card p {
+    font-size: 15px;
+    color: var(--blanco-estelar); /* Texto blanco suave muy legible */
+    margin: 0;
+    opacity: 0.85;
+}
+
+/* Círculos mágicos flotantes en el centro */
+.circle {
+    width: 12px;
+    height: 12px;
+    background: var(--vela-oro);
+    border: 2px solid var(--azul-profundo); /* Margen para separarlo de la línea */
+    border-radius: 50%;
+    position: absolute;
+    top: 26px;
+    box-shadow: 0 0 15px var(--vela-fuego);
+    
+}
+
+/* Posición de los círculos según el lado */
+.t-item.left .circle {
+    right: -8px;
+}
+
+.t-item.right .circle {
+    left: -8px;
+}
+
+/* ======================================================
+RESPONSIVE DESIGN (Para celulares)
+====================================================== */
+@media (max-width: 768px) {
+    .itinerario-card {
+        padding: 40px 20px;
+    }
+
+    /* Mover la línea central hacia la izquierda en pantallas chicas */
+    .timeline::before {
+        left: 20px;
+    }
+
+    /* Ocupar el 100% del ancho del contenedor */
+    .t-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 45px;
+        padding-right: 10px;
+        text-align: left !important; /* Todo alineado a la izquierda */
+        margin-bottom: 20px;
+    }
+
+    /* Alinear todos los círculos con la nueva posición de la línea */
+    .t-item.left .circle, 
+    .t-item.right .circle {
+        left: 14px;
+    }
+}
+
+/*======================================================
+7. PADRES Y PADRINOS
+======================================================*/
+
+.familia {
+    padding: 120px 20px;
+    position: relative;
+    z-index: 1; /* 🌟 Trae las tarjetas por encima del cielo estrellado */
+}
+
+.familia-contenedor {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+/* Tarjeta Principal estilo Pergamino Nocturno */
+.familia-card {
+    position: relative;
+  
+    background: 
+        linear-gradient(
+            rgba(11, 19, 43, 0.82),
+            rgba(28, 37, 65, 0.88)
+        ),
+        url("hero.jpg");
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 35px;
+    padding: 45px 35px;
+    text-align: center;
+    box-shadow: var(--shadow-magica);
+    border: 1px solid rgba(58, 80, 107, 0.4);
+    overflow: hidden;
+    transition: .4s ease-in-out;
+}
+
+.familia-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 209, 102, 0.5); /* Destello dorado al pasar el cursor */
+}
+
+/* Esfera de brillo místico superior */
+.familia-card::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+   
+    background: var(--vela-fuego);
+    opacity: 0.2;
+    filter: blur(40px);
+    border-radius: 50%;
+    top: -80px;
+    right: -80px;
+    pointer-events: none;
+}
+
+/* Círculo Decorativo / Icono Superior */
+.decoracion {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-radius: 50%;
+    /*  Degradado de flama de vela */
+    background: linear-gradient(
+        135deg,
+        var(--vela-oro),
+        var(--vela-fuego)
+    );
+    color: var(--azul-profundo); /* El símbolo interior resalta en oscuro */
+    font-size: 30px;
+    box-shadow: 0 0 20px rgba(244, 162, 97, 0.4);
+}
+
+/* Título de la tarjeta (ej. "Padres de la Novia") */
+.familia-card h3 {
+    margin: 25px 0 35px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 42px;
+    color: var(--titulo-magico);
+    display: inline-block;
+    padding: 10px 35px;
+    /* Tarjeta flotante translúcida para el título */
+    background: rgba(28, 37, 65, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 209, 102, 0.3);
+    box-shadow: 0 10px 30px rgba(11, 19, 43, 0.5);
+}
+
+.persona span {
+    font-size: 20px;
+    color: var(--vela-fuego); /* Tono de flama suave */
+}
+
+/* Nombres de las personas */
+.persona h4 {
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--blanco-estelar); /* Texto blanco estelar muy claro y legible */
+    display: inline-block;
+    padding: 8px 25px;
+    /* Tarjeta flotante translúcida para los nombres */
+    background: rgba(11, 19, 43, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 20px;
+    border: 1px solid rgba(58, 80, 107, 0.4);
+    box-shadow: 0 8px 20px rgba(11, 19, 43, 0.4);
+}
+
+/* Etiqueta / Rol de la persona */
+.persona p {
+    margin-top: 8px;
+    color: var(--vela-oro); /* Dorado para el rol o descripción */
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+/* Separador de Oro Mágico */
+.separador {
+    width: 80px;
+    height: 2px;
+    margin: 25px auto;
+    /* Degradado que se funde entre el oro y el fuego de las velas */
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--vela-oro),
+        transparent
+    );
+}
+
+/* ======================================================
+RESPONSIVE DESIGN (Móvil)
+====================================================== */
+@media (max-width: 850px) {
+    .familia-contenedor {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .familia-card {
+        padding: 35px 20px;
+    }
+
+    .familia-card h3 {
+        font-size: 32px;
+        padding: 8px 20px;
+    }
+
+    .persona h4 {
+        font-size: 20px;
+        padding: 6px 18px;
+    }
+}
+
+/*======================================================
+8. CÓDIGO DE VESTIMENTA
+======================================================*/
+
+.vestimenta {
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1; /* 🌟 Trae la sección al frente del cielo estrellado */
+}
+
+/* Aura de fondo cálida estilo luz de veladora */
+.vestimenta::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    /* Cambiado de --vino al tono de fuego de la vela */
+    background: var(--vela-fuego);
+    opacity: 0.18;
+    filter: blur(90px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Tarjeta Principal de Vestimenta */
+.vestimenta-card {
+    position: relative;
+    max-width: 850px;
+    width: 100%;
+    text-align: center;
+    padding: 70px 50px;
+    /* Fondo translúcido azul profundo para acoplarse al castillo nocturno */
+    background: 
+        linear-gradient(
+            rgba(11, 19, 43, 0.85),
+            rgba(28, 37, 65, 0.88)
+        ),
+        url("hero.jpg");
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 45px;
+    box-shadow: var(--shadow-magica);
+    border: 1px solid rgba(58, 80, 107, 0.4);
+}
+
+/* ICONO PRINCIPAL */
+.vestimenta-icono {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 50%;
+    font-size: 45px;
+    color: var(--azul-profundo); /* El símbolo interior resalta en oscuro */
+    /* Degradado de fuego de veladora */
+    background: linear-gradient(
+        135deg,
+        var(--vela-oro),
+        var(--vela-fuego)
+    );
+    box-shadow: 0 10px 25px rgba(244, 162, 97, 0.35);
+}
+
+/* SUBTÍTULO */
+.vestimenta-card .subtitulo {
+    display: block;
+    margin-top: 35px;
+    letter-spacing: 5px;
+    color: var(--vela-fuego); /* Cambiado al tono anaranjado suave */
+}
+
+/* TÍTULO PRINCIPAL */
+.vestimenta-card h2 {
+    margin: 15px 0 25px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 60px;
+    color: var(--titulo-magico);
+    display: inline-block;
+    padding: 15px 35px;
+    /* Tarjeta flotante cristalina en tono místico */
+    background: rgba(28, 37, 65, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 209, 102, 0.3);
+    box-shadow: 0 10px 30px rgba(11, 19, 43, 0.5);
+}
+
+/* DESCRIPCIÓN PRINCIPAL */
+.descripcion-vestimenta {
+    max-width: 550px;
+    margin: auto;
+    padding: 20px 30px;
+    line-height: 1.9;
+    color: var(--blanco-estelar); /* Texto claro para que sea muy legible */
+    font-size: 17px;
+    background: rgba(11, 19, 43, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 25px;
+    border: 1px solid rgba(58, 80, 107, 0.3);
+}
+
+/* OPCIONES (GRID) */
+.vestimenta-opciones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 45px;
+}
+
+.vestimenta-item {
+    padding: 30px;
+    /* Cajas flotantes oscuras translúcidas */
+    background: rgba(28, 37, 65, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 35px;
+    border: 1px solid rgba(58, 80, 107, 0.4);
+    transition: .3s ease-in-out;
+}
+
+.vestimenta-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 209, 102, 0.4); /* Resplandor dorado suave al hover */
+}
+
+.vestimenta-item i {
+    font-size: 45px;
+    color: var(--vela-oro); /* Los iconos individuales brillan en dorado */
+}
+
+.vestimenta-item h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 38px;
+    color: var(--vela-oro); /* Título de cada opción en dorado */
+    margin: 15px 0 10px;
+}
+
+.vestimenta-item p {
+    color: var(--blanco-estelar);
+    opacity: 0.85;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* DECORACIÓN INFERIOR (Estrellas/Símbolos) */
+.decoracion-vestimenta {
+    margin-top: 35px;
+    color: var(--vela-oro);
+    font-size: 25px;
+    letter-spacing: 12px;
+    text-shadow: 0 0 10px rgba(255, 209, 102, 0.5);
+}
+
+
+/* ======================================================
+MUESTRAS DE COLOR (SWATCHES)
+====================================================== */
+
+/* Contenedor de los círculos */
+.colores-sugeridos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+/* El Círculo de Color individual estilo gema mística */
+.circulo-color {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid rgba(255, 209, 102, 0.6); /* Borde dorado suave estilo vela */
+    box-shadow: 0 4px 12px rgba(11, 19, 43, 0.6); /* Sombra para despegar del fondo */
+    transition: transform .3s ease, box-shadow .3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Efecto Mágico al pasar el cursor (Hover) */
+.circulo-color:hover {
+    transform: scale(1.25); /* Se agranda un poco */
+    border-color: var(--vela-oro);
+    box-shadow: 0 0 15px var(--vela-oro); /* Brilla como un hechizo */
+}
+/* ======================================================
+RESPONSIVE DESIGN (Móvil)
+====================================================== */
+@media (max-width: 768px) {
+    .vestimenta-card {
+        padding: 45px 20px;
+    }
+
+    .vestimenta-card h2 {
+        font-size: 42px;
+        padding: 10px 20px;
+    }
+
+    .vestimenta-opciones {
+        grid-template-columns: 1fr; /* Una sola columna en celulares */
+        gap: 20px;
+    }
+}
+
+/*======================================================
+9. MESA DE REGALOS
+======================================================*/
+
+.regalos {
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1; /*  Mantiene la sección sobre el cielo estrellado */
+}
+
+/* Aura de luz de veladora flotante al fondo */
+.regalos::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    /* Cambiado al brillo anaranjado de la llama de vela */
+    background: var(--vela-fuego);
+    opacity: 0.18;
+    filter: blur(90px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Tarjeta Principal de Mesa de Regalos */
+.regalos-card {
+    position: relative;
+    max-width: 750px;
+    width: 100%;
+    text-align: center;
+    padding: 70px 50px;
+   
+    background: 
+        linear-gradient(
+            rgba(11, 19, 43, 0.85),
+            rgba(28, 37, 65, 0.88)
+        ),
+        url("hero.jpg");
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 45px;
+    box-shadow: var(--shadow-magica);
+    border: 1px solid rgba(58, 80, 107, 0.4);
+}
+
+/* CÍRCULO / ICONO PRINCIPAL */
+.regalo-icono {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 50%;
+    font-size: 45px;
+    color: var(--azul-profundo); /* El emoji/icono interior resalta en oscuro */
+    /* 🌟 Degradado de fuego de veladora */
+    background: linear-gradient(
+        135deg,
+        var(--vela-oro),
+        var(--vela-fuego)
+    );
+    box-shadow: 0 10px 25px rgba(244, 162, 97, 0.35);
+}
+
+/* SUBTÍTULO */
+.regalos-card .subtitulo {
+    display: block;
+    margin-top: 35px;
+    color: var(--vela-fuego);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* TÍTULO PRINCIPAL */
+.regalos-card h2 {
+    margin: 15px 0 25px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 60px;
+    color: var(--titulo-magico);
+    display: inline-block;
+    padding: 15px 35px;
+    /*Placa flotante cristalina nocturna */
+    background: rgba(28, 37, 65, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 209, 102, 0.3);
+    box-shadow: 0 10px 30px rgba(11, 19, 43, 0.5);
+}
+
+/* PARRAFO / MENSAJE */
+.regalos-card p {
+    max-width: 550px;
+    margin: auto;
+    padding: 20px 30px;
+    line-height: 1.9;
+    color: var(--blanco-estelar); /* Texto claro para lectura fácil */
+    font-size: 17px;
+    /* Caja traslúcida azul profundo */
+    background: rgba(11, 19, 43, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 25px;
+    border: 1px solid rgba(58, 80, 107, 0.3);
+}
+
+/* DECORACIÓN INFERIOR (Separador o Destellos) */
+.decoracion-regalo {
+    margin-top: 35px;
+    color: var(--vela-oro);
+    font-size: 25px;
+    letter-spacing: 12px;
+    text-shadow: 0 0 10px rgba(255, 209, 102, 0.5);
+}
+
+/* ======================================================
+RESPONSIVE DESIGN (Móvil)
+====================================================== */
+@media (max-width: 600px) {
+    .regalos-card {
+        padding: 50px 20px;
+    }
+
+    .regalos-card h2 {
+        font-size: 42px;
+        padding: 10px 20px;
+    }
+
+    .regalos-card p {
+        font-size: 15px;
+        padding: 15px 20px;
+    }
+}
+
+
+
+/*======================================================
+10. CONFIRMACIÓN (RSVP & ACCIONES)
+======================================================*/
+
+/* ======================================================
+SECCIÓN CONFIRMACIÓN
+====================================================== */
+
+.confirmacion {
+    padding: 60px 20px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+/* TÍTULO */
+.titulo-seccion {
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+/* CONTENEDOR DE LA TARJETA */
+.accion-card {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+
+    /* 🌟 Fondo cristal */
+    background:
+        linear-gradient(
+            rgba(11, 19, 43, 0.82),
+            rgba(28, 37, 65, 0.88)
+        ),
+        url("hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    padding: 45px 30px;
+    text-align: center;
+    border-radius: 35px;
+    box-shadow: var(--shadow-magica);
+    border: 1px solid rgba(58, 80, 107, 0.4);
+
+    transition: all .3s ease;
+}
+
+.accion-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 209, 102, 0.4);
+}
+
+/* ÍCONO */
+.accion-icono {
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    font-size: 38px;
+    color: var(--azul-profundo);
+
+    background: linear-gradient(
+        135deg,
+        var(--vela-oro),
+        var(--vela-fuego)
+    );
+
+    box-shadow: 0 10px 25px rgba(244, 162, 97, 0.35);
+}
+
+/* TÍTULO DE LA TARJETA */
+.accion-card h3 {
+    margin: 20px 0 15px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 35px;
+    color: var(--titulo-magico);
+}
+
+/* TEXTO */
+.accion-card p {
+    margin-bottom: 30px;
+    color: var(--blanco-estelar);
+    opacity: 0.85;
+    line-height: 1.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    .confirmacion {
+        padding: 50px 20px;
+    }
+
+    .accion-card {
+        padding: 35px 25px;
+    }
+
+    .accion-card h3 {
+        font-size: 28px;
+    }
+
+}
+
+/* ======================================================
+RESPONSIVE DESIGN (Móvil)
+====================================================== */
+@media (max-width: 800px) {
+    .acciones-evento {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+ 
+}
+
+
+
+/*======================================================
+BOTÓN FLOTANTE DE MÚSICA
+======================================================*/
+
+#music-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 209, 102, 0.5); /* Borde sutil dorado */
+    cursor: pointer;
+    
+    /* Fondo con degradado cálido de vela */
+    background: linear-gradient(
+        135deg,
+        var(--vela-oro),
+        var(--vela-fuego)
+    );
+    
+    color: var(--azul-profundo); /* El ícono resalta en azul noche */
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Sombra con aura cálida */
+    box-shadow: 0 8px 25px rgba(244, 162, 97, 0.4);
+    z-index: 99999;
+    transition: all .3s ease-in-out;
+}
+
+#music-btn:hover {
+    transform: scale(1.12);
+    /* Al pasar el cursor brilla como un orbe encendido */
+    box-shadow: 0 0 25px var(--vela-oro);
+    border-color: var(--vela-brillo);
+}
+
+
+#music-btn.playing {
+    animation: pulsoMagico 2s infinite ease-in-out;
+}
+
+@keyframes pulsoMagico {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 209, 102, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 209, 102, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 209, 102, 0.5);
+    }
+}
+
+/*======================================================
+12. CIERRE FINAL
+======================================================*/
+
+.cierre {
+    min-height: 80vh;
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    /*  Fondo con degradado nocturno profundo hacia el azul noche */
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(11, 19, 43, 0.85) 50%,
+        var(--azul-profundo)
+    );
+}
+
+/* Tarjeta Principal estilo Pergamino de Cristal */
+.cierre-card {
+    max-width: 750px;
+    width: 100%;
+    text-align: center;
+    padding: 70px 50px;
+  
+   background: 
+        linear-gradient(
+            rgba(11, 19, 43, 0.82),
+            rgba(28, 37, 65, 0.88)
+        ),
+        url("hero.jpg");
+         background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 45px;
+    box-shadow: var(--shadow-magica);
+    border: 1px solid rgba(58, 80, 107, 0.4);
+    position: relative;
+}
+
+
+.flor {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 38px;
+    color: var(--azul-profundo); /* Ícono en contraste oscuro */
+    /* Degradado de fuego/oro de veladora */
+    background: linear-gradient(
+        135deg,
+        var(--vela-oro),
+        var(--vela-fuego)
+    );
+    box-shadow: 0 10px 25px rgba(244, 162, 97, 0.35);
+}
+
+/* Subtítulo superior */
+.cierre-card span {
+    display: block;
+    margin-top: 35px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 13px;
+    color: var(--vela-fuego); /* Tono fuego cálido */
+    font-weight: 600;
+}
+
+/* Título principal */
+.cierre-card h2 {
+    margin: 20px 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 65px;
+    color: var(--titulo-magico); 
+    text-shadow: 0 2px 10px rgba(11, 19, 43, 0.9);
+}
+
+.cierre-card h3 {
+    font-family: "Great Vibes", cursive;
+    font-size: 80px;
+    font-weight: 400;
+    color: var(--vela-oro);
+    text-shadow: 0 0 15px rgba(255, 209, 102, 0.4);
+}
+
+/* Mensaje final */
+.cierre-card p {
+    max-width: 550px;
+    margin: 30px auto;
+    font-size: 17px;
+    line-height: 2;
+    color: var(--blanco-estelar); /* Texto claro legible */
+    opacity: 0.88;
+}
+
+/* Etiqueta de Fecha Final */
+.fecha-final {
+    margin-top: 35px;
+    padding: 15px 35px;
+    display: inline-block;
+    border-radius: 50px;
+    /*  Degradado dorado resplandeciente */
+    background: linear-gradient(
+        135deg,
+        var(--vela-brillo),
+        var(--vela-oro)
+    );
+    color: var(--azul-profundo); /* Texto oscuro para legibilidad perfecta */
+    font-weight: 600;
+    letter-spacing: 3px;
+    box-shadow: 0 4px 15px rgba(255, 209, 102, 0.25);
+}
+
+/* Decoración inferior (Estrellas / Destellos) */
+.decoracion-final {
+    margin-top: 35px;
+    color: var(--vela-oro);
+    font-size: 28px;
+    letter-spacing: 15px;
+    text-shadow: 0 0 12px rgba(255, 209, 102, 0.5);
+}
+
+/* ======================================================
+RESPONSIVE DESIGN (Móvil)
+====================================================== */
+@media (max-width: 600px) {
+    .cierre-card {
+        padding: 50px 25px;
+    }
+
+    .cierre-card h2 {
+        font-size: 45px;
+    }
+
+    .cierre-card h3 {
+        font-size: 58px;
+    }
+
+    .cierre-card p {
+        font-size: 15px;
+    }
+
+    .fecha-final {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+}
+
+
+/*======================================================
+13. FOOTER (PIE DE PÁGINA MÁGICO)
+======================================================*/
+
+.luxury-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 28px 20px;
+
+    /*  Fondo azul muy oscuro con cristal translúcido */
+    background: rgba(11, 19, 43, 0.85);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    /* Borde dorado sutil en la parte superior */
+    border-top: 1px solid rgba(255, 209, 102, 0.25);
+    position: relative;
+    z-index: 10;
+}
+
+/* Líneas laterales del Footer (Hilos de luz de vela) */
+.luxury-footer .line {
+    width: 80px;
+    height: 1px;
+    /* Gradiente dorado que se desvanece a los lados */
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--vela-oro),
+        var(--vela-fuego),
+        transparent
+    );
+    opacity: 0.7;
+}
+
+.luxury-footer p {
+    margin: 0;
+    color: var(--blanco-estelar); /* Texto claro legible */
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+/* Enlaces del Footer (Créditos / Firma) */
+.luxury-footer a {
+    color: var(--vela-oro); /* Tono dorado elegante */
+    font-weight: 700;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+
+.luxury-footer a:hover {
+    color: var(--vela-brillo); /* Brillo intenso al pasar el cursor */
+    text-shadow: 0 0 10px rgba(255, 209, 102, 0.6);
+}
+
+/* Variante o contenedor secundario del Footer */
+.footer {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    /* Fondo oscuro coherente con el resto del castillo */
+    background: rgba(11, 19, 43, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(58, 80, 107, 0.3);
+}
+
+.footer p {
+    margin: 0;
+    color: var(--blanco-estelar);
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+
+/* Adjust Responsive */
+@media (max-width: 600px) {
+    .luxury-footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .luxury-footer .line {
+        width: 120px; /* Línea horizontal amigable para celulares */
+    }
+}
+
+/* ======================================================
+   EFECTO ESTRELLAS MÁGICAS CAYENDO
+====================================================== */
+
+.estrellas-container {
+
+    position: fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:10; /* ⭐ Ahora está encima de fondos */
+
+}
+
+
+/* ESTRELLA */
+
+.estrella {
+
+    position:absolute;
+
+    top:-20px;
+
+    width:5px;
+    height:5px;
+
+    background:#FFD166;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 8px #FFD166,
+        0 0 20px #FFF2CC;
+
+    animation:
+        caer linear infinite,
+        brillo 2s ease-in-out infinite;
+
+    opacity:.8;
+
+}
+
+
+/* CAÍDA */
+
+@keyframes caer {
+
+    0% {
+        transform:
+        translateY(-50px)
+        rotate(0deg);
+
+        opacity: 0;
+    }
+
+
+    10% {
+        opacity: 1;
+    }
+
+
+    100% {
+
+        transform:
+        translateY(110vh)
+        rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* PARPADEO */
+
+@keyframes brillo {
+
+    0%,100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(2);
+    }
+
+}
+
+/* CORONA DEL HERO */
+
+.corona {
+
+    font-size: 70px;
+
+    margin-bottom: 15px;
+
+    color: var(--vela-oro);
+
+    filter:
+    drop-shadow(0 0 10px #FFD166)
+    drop-shadow(0 0 25px #F4A261);
+
+    animation:
+    flotarCorona 3s ease-in-out infinite;
+
+}
+
+
+/* Movimiento mágico */
+
+@keyframes flotarCorona {
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+}
