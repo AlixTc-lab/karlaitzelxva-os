@@ -12,9 +12,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- ESTRELLAS CAÍDAS -->
 <div class="estrellas-container"></div>
 
@@ -97,61 +100,47 @@ GALERÍA DE FOTOS
 
     <div class="titulo-seccion">
 
-        <span>
-            Mis recuerdos
-        </span>
+        <span>Mis recuerdos</span>
 
-        <h2>
-            Momentos Especiales
-        </h2>
+        <h2>Momentos Especiales</h2>
 
         <p>
-            Una pequeña colección de momentos que forman parte de mi   historia.
+            Una pequeña colección de momentos que forman parte de mi historia.
         </p>
 
     </div>
 
+    <div class="swiper miGaleria">
 
-    <div class="galeria-grid">
+        <div class="swiper-wrapper">
 
+            <div class="swiper-slide">
+                <img src="foto1.jpeg">
+            </div>
 
-        <div class="foto grande">
+            <div class="swiper-slide">
+                <img src="foto2.jpeg">
+            </div>
 
-          
-            <img src="foto1.jpeg" alt="Foto">
+            <div class="swiper-slide">
+                <img src="foto3.jpeg">
+            </div>
 
-        </div>
+            <div class="swiper-slide">
+                <img src="foto4.jpeg">
+            </div>
 
-
-        <div class="foto grande">
-
-             <img src="foto2.jpeg" alt="Foto">
-
-        </div>
-
-
-        <div class="foto grande">
-
-            <img src="foto3.jpeg" alt="Foto">
-
-        </div>
-
-
-         <div class="foto grande">
-
-            <img src="foto4.jpeg" alt="Foto">
+            <div class="swiper-slide">
+                <img src="foto5.jpeg">
+            </div>
 
         </div>
 
-<br>
-</div>
-    <div class="foto foto-principal">
-    <img src="foto5.jpeg" alt="Foto">
-</div>
+        <div class="swiper-pagination"></div>
+
+    </div>
 
 </section>
-
-
 
 
 <!--======================================================

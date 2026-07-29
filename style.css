@@ -488,110 +488,128 @@ RESPONSIVE DESIGN (Para celulares y tablets)
 }
 
 /* GRID DE IMÁGENES */
-.galeria-grid{
-    max-width:900px;
+.miGaleria{
+
+    width:100%;
+    max-width:1100px;
+
     margin:auto;
 
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:22px;
+    padding-bottom:70px;
+
 }
 
-.foto{
-    height:280px;
-    overflow:hidden;
-    border-radius:30px;
-    background:var(--azul-noche);
-    box-shadow:var(--shadow-magica);
-    border:1px solid rgba(58,80,107,.3);
-    position:relative;
-}
+.swiper-slide{
 
-.foto-principal{
-      grid-column:1 / -1;
     height:500px;
-    max-width:850px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+}
+
+.swiper-slide img{
+
     width:100%;
-    justify-self:center;
+    height:100%;
+
+    object-fit:cover;
+
 }
 
-.foto img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: .6s ease-in-out;
+.swiper-slide-active{
+
+       transform:scale(1);
+
 }
 
-.foto:hover img {
-    transform: scale(1.12);
+.swiper-pagination-bullet{
+
+    background:#FFD166;
+
 }
 
-/* Fotos destacadas */
-.foto.grande {
-    height: 450px;
+.swiper-pagination-bullet-active{
+
+    width:28px;
+    border-radius:10px;
+
+}
+.swiper-wrapper{
+    align-items: stretch;
 }
 
-
-
-/* EFECTO DE BRILLO MÁGICO (HOVER) */
-.foto::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    /* Cambiado de un reflejo blanco plano a un destello de luz cálido/dorado */
-    background: linear-gradient(
-        135deg,
-        rgba(255, 242, 204, 0.25), 
-        transparent 60%
-    );
-    opacity: 0;
-    transition: .4s ease-in-out;
-    pointer-events: none; /* Asegura que el efecto no interfiera con clics */
+.swiper-slide{
+    height: 600px !important;
 }
 
-.foto:hover::after {
-    opacity: 1;
-}
-
-.foto:hover {
-    border-color: rgba(255, 209, 102, 0.5); /* El borde se ilumina en dorado al pasar el cursor */
+.swiper-slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 /* ======================================================
-RESPONSIVE DESIGN (Móvil)
+RESPONSIVE - CARRUSEL
 ====================================================== */
-@media (max-width: 900px) {
-    .galeria-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+
+@media (max-width: 900px){
+
+    .miGaleria{
+
+        max-width:95%;
+
     }
+
+    .swiper-slide{
+
+        height:420px;
+
+    }
+
 }
 
-@media (max-width: 600px) {
-    .titulo-seccion h2 {
-        font-size: 40px;
+@media (max-width: 600px){
+
+    .titulo-seccion h2{
+
+        font-size:40px;
+
     }
 
-    .galeria-grid {
-        grid-template-columns: 1fr; 
-        gap: 15px;
+    .miGaleria{
+
+        max-width:100%;
+
+        padding-bottom:55px;
+
     }
 
-    .foto, 
-    .foto.grande {
-        height: 320px; /* Tamaño unificado y cómodo para celulares */
+    .swiper-slide{
+
+        height:320px;
+
+        border-radius:20px;
+
     }
-   .foto-principal{
-        grid-column:auto;
-        height:380px;
-    }
- 
+
 }
 
 @media (min-width:1400px){
 
-    .foto-principal{
-        height:420px;
+    .miGaleria{
+
+        max-width:1200px;
+
+    }
+
+    .swiper-slide{
+
+        height:600px;
+
     }
 
 }

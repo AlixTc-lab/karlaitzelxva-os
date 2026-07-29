@@ -136,3 +136,45 @@ setInterval(
     crearEstrella,
     180
 );
+
+
+
+
+
+
+new Swiper(".miGaleria", {
+
+    loop: true,
+
+    centeredSlides: true,
+
+    slidesPerView: 1,
+
+    spaceBetween: 25,
+
+    autoplay: {
+        delay: 3000
+    },
+
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+    },
+
+    breakpoints: {
+
+        900: {
+
+            slidesPerView: 2
+
+        },
+
+        1200: {
+
+            slidesPerView: 3
+
+        }
+
+    }
+
+});
