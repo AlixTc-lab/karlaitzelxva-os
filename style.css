@@ -60,7 +60,7 @@ FONDO MÁGICO (CORREGIDO)
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at top, #1b1230, #1F4E9D);
+    background:  radial-gradient(circle at top, #1b1230, #05040a);
     z-index: -1; /* 🌟 CORRECCIÓN: Envía el cielo al fondo absoluto */
     overflow: hidden;
 }
@@ -126,7 +126,11 @@ FONDO MÁGICO (CORREGIDO)
 
  background: 
       
-        url("n4.png");
+         linear-gradient(
+            rgba(11, 19, 43, 0.55),
+        rgba(28, 37, 65, 0.60)
+        ),
+        url("h2.png");
        
 
     
@@ -1525,7 +1529,7 @@ BOTÓN FLOTANTE DE MÚSICA
             rgba(11, 19, 43, 0.82),
             rgba(28, 37, 65, 0.88)
         ),
-        url("g.png");
+        url("h2.png");
          background-size: cover;
     background-position: center;
     backdrop-filter: blur(20px);
