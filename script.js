@@ -141,38 +141,32 @@ setInterval(
 
 
 
-
 new Swiper(".miGaleria", {
 
-    loop: true,
+    loop:true,
 
-    centeredSlides: true,
+    centeredSlides:true,
 
-    slidesPerView: 1,
+    slidesPerView:1,
 
-    spaceBetween: 25,
+    spaceBetween:20,
 
-    autoplay: {
-        delay: 3000
+    autoplay:{
+        delay:3000,
+        disableOnInteraction:false
     },
 
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true
+    pagination:{
+        el:".swiper-pagination",
+        clickable:true
     },
 
-    breakpoints: {
 
-        900: {
+    breakpoints:{
 
-            slidesPerView: 2
-
-        },
-
-        1200: {
-
-            slidesPerView: 3
-
+        768:{
+            slidesPerView:2,
+            spaceBetween:25
         }
 
     }

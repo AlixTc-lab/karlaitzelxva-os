@@ -453,17 +453,23 @@ RESPONSIVE DESIGN (Para celulares y tablets)
 6. GALERÍA
 ======================================================*/
 
+/*======================================================
+6. GALERÍA
+======================================================*/
+
 .galeria {
     padding: 120px 20px;
     position: relative;
-    z-index: 1; /* Trae las fotos por encima del cielo estrellado */
+    z-index: 1;
 }
+
 
 .titulo-seccion {
     max-width: 700px;
     margin: 0 auto 60px;
     text-align: center;
 }
+
 
 .titulo-seccion span {
     color: var(--vela-fuego);
@@ -473,96 +479,121 @@ RESPONSIVE DESIGN (Para celulares y tablets)
     font-weight: 600;
 }
 
+
 .titulo-seccion h2 {
-    margin-top: 15px;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 55px;
-    color: var(--titulo-magico); /* Cambiado al dorado de las velas */
-    text-shadow: 0 2px 10px rgba(11, 19, 43, 0.9);
+    margin-top:15px;
+    font-family:"Cormorant Garamond", serif;
+    font-size:55px;
+    color:var(--titulo-magico);
+    text-shadow:0 2px 10px rgba(11,19,43,.9);
 }
+
 
 .titulo-seccion p {
-    margin-top: 20px;
-    color: var(--blanco-estelar); /*  Cambiado para que sea legible sobre el fondo oscuro */
-    opacity: 0.8;
+    margin-top:20px;
+    color:var(--blanco-estelar);
+    opacity:.8;
 }
 
-/* GRID DE IMÁGENES */
+
+
+/*======================================================
+CARRUSEL GALERÍA
+======================================================*/
+
+
 .miGaleria{
 
     width:100%;
     max-width:1100px;
-
     margin:auto;
 
     padding-bottom:70px;
 
 }
 
+
+.swiper-wrapper{
+
+    align-items:center;
+
+}
+
+
 .swiper-slide{
 
-    height:500px;
+    height:520px;
 
     border-radius:30px;
 
     overflow:hidden;
 
-    transition:.4s;
+    background:#0b132b;
+
+    transition:.4s ease;
 
 }
+
 
 .swiper-slide img{
 
     width:100%;
+
     height:100%;
 
     object-fit:cover;
 
+    display:block;
+
 }
+
+
+/* efecto suave foto central */
 
 .swiper-slide-active{
 
-       transform:scale(1);
+    transform:scale(1.02);
 
 }
+
+
+
+/* puntos */
 
 .swiper-pagination-bullet{
 
     background:#FFD166;
 
+    opacity:.7;
+
 }
+
 
 .swiper-pagination-bullet-active{
 
     width:28px;
+
     border-radius:10px;
 
-}
-.swiper-wrapper{
-    align-items: stretch;
-}
+    opacity:1;
 
-.swiper-slide{
-    height: 600px !important;
 }
 
-.swiper-slide img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
 
-/* ======================================================
-RESPONSIVE - CARRUSEL
-====================================================== */
 
-@media (max-width: 900px){
+/*======================================================
+TABLET
+======================================================*/
+
+
+@media(max-width:900px){
 
     .miGaleria{
 
         max-width:95%;
 
     }
+
 
     .swiper-slide{
 
@@ -572,7 +603,15 @@ RESPONSIVE - CARRUSEL
 
 }
 
-@media (max-width: 600px){
+
+
+/*======================================================
+CELULAR
+======================================================*/
+
+
+@media(max-width:600px){
+
 
     .titulo-seccion h2{
 
@@ -580,25 +619,43 @@ RESPONSIVE - CARRUSEL
 
     }
 
+
     .miGaleria{
 
         max-width:100%;
 
-        padding-bottom:55px;
+        padding-bottom:50px;
 
     }
 
+
     .swiper-slide{
 
-        height:320px;
+        height:330px;
 
         border-radius:20px;
 
     }
 
+
+    .swiper-slide-active{
+
+        transform:scale(1);
+
+    }
+
+
 }
 
-@media (min-width:1400px){
+
+
+/*======================================================
+PANTALLAS GRANDES
+======================================================*/
+
+
+@media(min-width:1400px){
+
 
     .miGaleria{
 
@@ -606,14 +663,14 @@ RESPONSIVE - CARRUSEL
 
     }
 
+
     .swiper-slide{
 
-        height:600px;
+        height:560px;
 
     }
 
 }
-
 /*======================================================
 5. LUGARES
 ======================================================*/
