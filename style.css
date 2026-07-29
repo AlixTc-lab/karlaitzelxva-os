@@ -125,11 +125,8 @@ FONDO MÁGICO (CORREGIDO)
     overflow:hidden;
 
  background: 
-        linear-gradient(
-            rgba(11, 19, 43, 0.82),
-            rgba(28, 37, 65, 0.88)
-        ),
-        url("g.png");
+      
+        url("nn.png");
        
 
     
