@@ -15,7 +15,7 @@ body{
 body{
     margin:0;
     font-family: Georgia, serif;
-    background:#07060d;
+    background:#1F4E9D;
     color:#f5e9d8;
     scroll-behavior:smooth;
 }
@@ -60,7 +60,7 @@ FONDO MÁGICO (CORREGIDO)
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at top, #1b1230, #05040a);
+    background: radial-gradient(circle at top, #1b1230, #1F4E9D);
     z-index: -1; /* 🌟 CORRECCIÓN: Envía el cielo al fondo absoluto */
     overflow: hidden;
 }
@@ -129,7 +129,7 @@ FONDO MÁGICO (CORREGIDO)
             rgba(11, 19, 43, 0.82),
             rgba(28, 37, 65, 0.88)
         ),
-        url("h.png");
+        url("g.png");
        
 
     
@@ -697,7 +697,7 @@ PANTALLAS GRANDES
             rgba(11, 19, 43, 0.82),
             rgba(28, 37, 65, 0.88)
         ),
-        url("h2.png");
+        url("g2.png");
          background-size: cover;
     background-position: center;
     backdrop-filter: blur(18px);
@@ -953,7 +953,7 @@ RESPONSIVE DESIGN (Para celulares)
             rgba(11, 19, 43, 0.82),
             rgba(28, 37, 65, 0.88)
         ),
-        url("h2.png");
+        url("g2.png");
     background-size: cover;
     background-position: center;
     backdrop-filter: blur(18px);
@@ -1136,7 +1136,7 @@ RESPONSIVE DESIGN (Móvil)
             rgba(11, 19, 43, 0.85),
             rgba(28, 37, 65, 0.88)
         ),
-        url("h2.png");
+        url("g2.png");
     background-size: cover;
     background-position: center;
     backdrop-filter: blur(20px);
@@ -1310,148 +1310,6 @@ RESPONSIVE DESIGN (Móvil)
     }
 }
 
-/*======================================================
-9. MESA DE REGALOS
-======================================================*/
-
-.regalos {
-    padding: 120px 20px;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    z-index: 1; /*  Mantiene la sección sobre el cielo estrellado */
-}
-
-/* Aura de luz de veladora flotante al fondo */
-.regalos::before {
-    content: "";
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    /* Cambiado al brillo anaranjado de la llama de vela */
-    background: var(--vela-fuego);
-    opacity: 0.18;
-    filter: blur(90px);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-/* Tarjeta Principal de Mesa de Regalos */
-.regalos-card {
-    position: relative;
-    max-width: 750px;
-    width: 100%;
-    text-align: center;
-    padding: 70px 50px;
-   
-    background: 
-        linear-gradient(
-            rgba(11, 19, 43, 0.85),
-            rgba(28, 37, 65, 0.88)
-        ),
-        url("h.png");
-    background-size: cover;
-    background-position: center;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 45px;
-    box-shadow: var(--shadow-magica);
-    border: 1px solid rgba(58, 80, 107, 0.4);
-}
-
-/* CÍRCULO / ICONO PRINCIPAL */
-.regalo-icono {
-    width: 90px;
-    height: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    border-radius: 50%;
-    font-size: 45px;
-    color: var(--azul-profundo); /* El emoji/icono interior resalta en oscuro */
-    /* 🌟 Degradado de fuego de veladora */
-    background: linear-gradient(
-        135deg,
-        var(--vela-oro),
-        var(--vela-fuego)
-    );
-    box-shadow: 0 10px 25px rgba(244, 162, 97, 0.35);
-}
-
-/* SUBTÍTULO */
-.regalos-card .subtitulo {
-    display: block;
-    margin-top: 35px;
-    color: var(--vela-fuego);
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-/* TÍTULO PRINCIPAL */
-.regalos-card h2 {
-    margin: 15px 0 25px;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 60px;
-    color: var(--titulo-magico);
-    display: inline-block;
-    padding: 15px 35px;
-    /*Placa flotante cristalina nocturna */
-    background: rgba(28, 37, 65, 0.65);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 30px;
-    border: 1px solid rgba(255, 209, 102, 0.3);
-    box-shadow: 0 10px 30px rgba(11, 19, 43, 0.5);
-}
-
-/* PARRAFO / MENSAJE */
-.regalos-card p {
-    max-width: 550px;
-    margin: auto;
-    padding: 20px 30px;
-    line-height: 1.9;
-    color: var(--blanco-estelar); /* Texto claro para lectura fácil */
-    font-size: 17px;
-    /* Caja traslúcida azul profundo */
-    background: rgba(11, 19, 43, 0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 25px;
-    border: 1px solid rgba(58, 80, 107, 0.3);
-}
-
-/* DECORACIÓN INFERIOR (Separador o Destellos) */
-.decoracion-regalo {
-    margin-top: 35px;
-    color: var(--vela-oro);
-    font-size: 25px;
-    letter-spacing: 12px;
-    text-shadow: 0 0 10px rgba(255, 209, 102, 0.5);
-}
-
-/* ======================================================
-RESPONSIVE DESIGN (Móvil)
-====================================================== */
-@media (max-width: 600px) {
-    .regalos-card {
-        padding: 50px 20px;
-    }
-
-    .regalos-card h2 {
-        font-size: 42px;
-        padding: 10px 20px;
-    }
-
-    .regalos-card p {
-        font-size: 15px;
-        padding: 15px 20px;
-    }
-}
-
-
 
 /*======================================================
 10. CONFIRMACIÓN (RSVP & ACCIONES)
@@ -1486,7 +1344,7 @@ SECCIÓN CONFIRMACIÓN
             rgba(11, 19, 43, 0.82),
             rgba(28, 37, 65, 0.88)
         ),
-        url("h2.png");
+        url("g2.png");
 
     background-size: cover;
     background-position: center;
@@ -1670,7 +1528,7 @@ BOTÓN FLOTANTE DE MÚSICA
             rgba(11, 19, 43, 0.82),
             rgba(28, 37, 65, 0.88)
         ),
-        url("h.png");
+        url("g.png");
          background-size: cover;
     background-position: center;
     backdrop-filter: blur(20px);
