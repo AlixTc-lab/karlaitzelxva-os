@@ -15,7 +15,11 @@ body{
 body{
     margin:0;
     font-family: Georgia, serif;
-    background:#1F4E9D;
+    background:
+      linear-gradient(
+            rgba(11, 19, 43, 0.82),
+            rgba(28, 37, 65, 0.88)
+        );
     color:#f5e9d8;
     scroll-behavior:smooth;
 }
@@ -127,7 +131,7 @@ FONDO MÁGICO (CORREGIDO)
  background: 
       
      
-        url("lu2.png");
+        url("lu1.png");
        
 
     
@@ -176,7 +180,7 @@ FONDO MÁGICO (CORREGIDO)
 
 .subtitulo-xv {
     font-family: 'Cinzel', serif;
-    font-size: 60px; /* Tamaño grande para los XV */
+    font-size: 70px; /* Tamaño grande para los XV */
     color: var(--vela-oro);
     margin: 0;
 }
