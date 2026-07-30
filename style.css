@@ -20,7 +20,7 @@ body{
             rgba(11, 19, 43, 0.82),
             rgba(28, 37, 65, 0.88)
         );
-    color:#f5e9d8;
+   
     scroll-behavior:smooth;
 }
 
@@ -125,16 +125,13 @@ FONDO MÁGICO (CORREGIDO)
     display:flex;
     justify-content:center;
     align-items:center;
-
-    overflow:hidden;
-
- background: 
-      
-     
-        url("lu1.png");
-       
+       overflow: hidden;
 
     
+
+ background:  
+ url("lu1.png");
+       
     background-repeat:no-repeat;
     background-size:cover;
     background-position:center center;
