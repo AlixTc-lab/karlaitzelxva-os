@@ -126,11 +126,8 @@ FONDO MÁGICO (CORREGIDO)
 
  background: 
       
-         linear-gradient(
-            rgba(11, 19, 43, 0.55),
-        rgba(28, 37, 65, 0.60)
-        ),
-        url("h2.png");
+     
+        url("lu2.png");
        
 
     
@@ -140,95 +137,71 @@ FONDO MÁGICO (CORREGIDO)
 
 }
 
-
-
-.hero-content{
-
-    position:relative;
-
-    z-index:5;
-
-    text-align:center;
-
-    padding:40px;
-
+.hero-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    padding: 40px;
+    
+    /* ESTO ES LA CLAVE PARA ORDENAR TODO */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra todo horizontalmente */
+    gap: 20px;           /* Controla el espacio entre CADA elemento automáticamente */
 }
 
-.detalle{
+/* Ajustes específicos para que se vea como la imagen */
+.nombre {
+    font-family: "Great Vibes", cursive;
+    font-size: 130px;
+    color: var(--vela-oro);
+    font-weight: 100;
 
-    display:inline-block;
+    color: var(--vela-oro);
 
-    padding:10px 24px;
+    text-shadow:
+        0 2px 10px rgba(11, 19, 43, 0.7),
+        0 0 20px rgba(244, 162, 97, 0.6);
 
-    border-radius:50px;
-
-    background: rgba(11, 19, 43, 0.45),   /* Azul profundo con transparencia */
-        rgba(58, 80, 107, 0.30) ;
-
-    backdrop-filter:blur(12px);
-
-    color:var(--vela-oro);
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-    font-size:13px;
-
-    font-weight:600;
-
-    margin-bottom:25px;
-
+    animation: fadeDown 2s;
+    margin: 0; /* Quitamos márgenes por defecto */
+    line-height: 1; /* Ajusta la altura de la línea para que no se separe de más */
 }
 
-.hero h1{
-
-    font-family:"Great Vibes",cursive;
-
-    font-size:130px;
-
-    font-weight:100;
-
-   color: var(--vela-oro);
-text-shadow: 
-    0 2px 10px rgba(11, 19, 43, 0.7),   /* Sombra oscura: da contraste y legibilidad */
-    0 0 20px rgba(244, 162, 97, 0.6);   /* Resplandor naranja: simula el calor de la vela */
-
-    animation:fadeDown 2s;
-
+.bloque-invitacion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Separación entre "Te invitamos" y "XV AÑOS" */
 }
 
-.linea{
-
-    width:140px;
-
-    height:2px;
-
-    background:linear-gradient(
-        to right,
-        transparent,
-        var(--vela-fuego),
-        var(--vela-oro),
-        transparent
-    );
-
-    margin:25px auto;
-
+.subtitulo-xv {
+    font-family: 'Cinzel', serif;
+    font-size: 60px; /* Tamaño grande para los XV */
+    color: var(--vela-oro);
+    margin: 0;
 }
 
-.hero p{
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:32px;
-
-    color:var(--titulo-magico);
-
-    letter-spacing:2px;
-
-    animation:fadeUp 2s;
-
+.fecha {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 32px;
+    color: var(--titulo-magico);
+    margin: 0;
 }
+
+.linea {
+    width: 140px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--vela-fuego), var(--vela-oro), transparent);
+    /* Ya no necesitamos margin: auto porque flexbox lo centra */
+}
+
+/* Ajuste para celulares */
+@media(max-width:768px){
+    .nombre { font-size: 70px; }
+    .subtitulo-xv { font-size: 40px; }
+    .hero-content { gap: 15px; }
+}
+
 
 
 /*======================================================
